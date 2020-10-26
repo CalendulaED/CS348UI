@@ -13,6 +13,6 @@ def index1():
     cur.execute(sql)
     u = cur.fetchall()
     conn.close()
-    return render_template('index1.html',u=u)
+    return render_template('Chicago Symphony Orchestra',u=u)
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=80)
