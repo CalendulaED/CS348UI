@@ -1,0 +1,13 @@
+create table Shows(ShowName varchar(50), ShowType varchar(50), ShowLength integer, AgeGroup varchar(50), DirectorName varchar(50), primary key(ShowName), foreign key(DirectorName) references Director(DirectorName));
+create table Buyer(BuyerSSN integer, BuyerName varchar(50), BuyerAge integer, PhoneNumber integer, Email varchar(50), primary key(BuyerSSN));
+create table Ticket(SerialNumber integer, ShowName varchar(50), Seat varchar(50), Price integer, Venue varchar(50), primary key(SerialNumber), foreign key(Venue) references Location(Venue), foreign key(ShowName) references Shows(ShowName));
+create table Book(BuyerSSN integer, SerialNumber integer, BookingDate date, primary key(BuyerSSN, SerialNumber), foreign key(SerialNumber) references Ticket(SerialNumber), foreign key(BuyerSSN) references Buyer(BuyerSSN));
+create table Location(Venue varchar(50), ShowName varchar(50), City varchar(50), NumberOfSeat integer, primary key(Venue, ShowName), foreign key(ShowName) references Shows(ShowName));
+create table Rating(BuyerSSN integer, ShowName varchar(50), Rating integer, RatingDate date, primary key(BuyerSSN, ShowName), foreign key(BuyerSSN) references Buyer(BuyerSSN), foreign key(ShowName) references Shows(ShowName));
+create table Merchandise(ShowName varchar(50), Merchandise varchar(50), Price integer, primary key(ShowName, Merchandise), foreign key(ShowName) references Shows(ShowName));
+create table Company(Company varchar(50), City varchar(50), State varchar(50), Country varchar(50), primary key(Company));
+create table Investment(Company varchar(50), ShowName varchar(50), primary key(Company, ShowName), foreign key(Company) references Company(Company), foreign key(ShowName) references Shows(ShowName));
+create table ShowDate(ShowName varchar(50), ShowTime date, primary key(ShowName, ShowTime), foreign key(ShowName) references Shows(ShowName));
+create table Actors(ActorName varchar(50), ActorAge integer, primary key(ActorName));
+create table ActIn(ActorName varchar(50), ShowName varchar(50), ActorRole varchar(50), primary key(ActorName, ShowName), foreign key(ActorName) references Actors(ActorName), foreign key(ShowName) references Shows(ShowName));
+create table Director(DirectorName varchar(50), DirectorAge integer, primary key(DirectorName));

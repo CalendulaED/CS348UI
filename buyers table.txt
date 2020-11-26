@@ -1,0 +1,1 @@
+create table Buyers(BuyerSSN integer, BuyerName varchar(50), BuyerAge integer, PhoneNumber varchar(50), Email varchar(50), primary key(BuyerSSN));

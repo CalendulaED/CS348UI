@@ -1,0 +1,13 @@
+create table Shows(ShowName varchar(50), ShowType varchar(50), ShowLength integer, AgeGroup varchar(50), DirectorName varchar(50), primary key(ShowName));
+create table Buyer(BuyerSSN integer, BuyerName varchar(50), BuyerAge integer, PhoneNumber varchar(50), Email varchar(50), primary key(BuyerSSN));
+create table Ticket(SerialNumber integer, ShowName varchar(50), Seat varchar(50), Price integer, Venue varchar(50), primary key(SerialNumber));
+create table Book(BuyerSSN integer, SerialNumber integer, BookingDate date, primary key(BuyerSSN, SerialNumber));
+create table Location(Venue varchar(50), ShowName varchar(50), City varchar(50), NumberOfSeat integer, primary key(Venue, ShowName));
+create table Rating(BuyerSSN integer, ShowName varchar(50), Rating integer, RatingDate date, primary key(BuyerSSN, ShowName));
+create table Merchandise(ShowName varchar(50), Merchandise varchar(50), Price integer, primary key(ShowName, Merchandise));
+create table Company(Company varchar(50), City varchar(50), State varchar(50), Country varchar(50), primary key(Company));
+create table Investment(Company varchar(50), ShowName varchar(50), primary key(Company, ShowName));
+create table ShowDate(ShowName varchar(50), ShowTime date, primary key(ShowName, ShowTime));
+create table Actors(ActorName varchar(50), ActorAge integer, primary key(ActorName));
+create table ActIn(ActorName varchar(50), ShowName varchar(50), ActorRole varchar(50), primary key(ActorName, ShowName));
+create table Director(DirectorName varchar(50), DirectorAge integer, primary key(DirectorName));
